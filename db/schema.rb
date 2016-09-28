@@ -22,22 +22,22 @@ ActiveRecord::Schema.define(version: 20160928152300) do
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username"
-    t.string   "password"
-    t.string   "email"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "notebook_id"
-    t.index ["notebook_id"], name: "index_pages_on_notebook_id", using: :btree
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "sidebar",     limit: 65535
     t.text     "notes",       limit: 65535
     t.text     "summary",     limit: 65535
     t.integer  "page_number"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "notebook_id"
+    t.index ["notebook_id"], name: "index_pages_on_notebook_id", using: :btree
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "notebooks", "users"

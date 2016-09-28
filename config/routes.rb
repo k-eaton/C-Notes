@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root
   resources :users
   resources :notebooks
   resources :pages
