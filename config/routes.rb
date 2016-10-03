@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root 'application#hello'
+
   resources :teddybears
   resources :users
   resources :notebooks
