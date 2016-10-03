@@ -1,4 +1,10 @@
-<%= form_for(user) do |f| %>
+<%= form_for @user do |f| %>
+
+  <p> Name:</br> <%= f.text_field :username%> </p>
+  <p> Email:</br> <%= f.text_field :email%> </p>
+  <p> Password:</br> <%= f.password_field :password%></p>
+  <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,6 +18,6 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <p><%= f.submit :Signup %></p>
   </div>
 <% end %>
